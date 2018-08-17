@@ -12,16 +12,25 @@ p,
 ul,
 li,
 section,
-div {
+div,
+input,
+textarea {
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-family: $font-family;
   box-sizing: border-box;
 }
 
-// HEADER
+.Content--Container {
+  background-color: $subtle-bg;
+  width: 80vw;
+  margin: auto;
+  min-height: calc(100vh - 80px);
+}
+
+// Header
 
 .Header--Container {
   width: 100vw;
@@ -32,21 +41,84 @@ div {
   align-items: center;
   padding: 0 80px;
 
+  a {
+    text-decoration: none;
+    color: black;
+    color: white;
+  }
+
   .Header--UL {
     display: flex;
     font-size: 20px;
 
     .Header--LI {
       margin: 0 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
 
-// HOME
+// Create Post
 
-.Home--Container {
-  background-color: $subtle-bg;
-  width: 80vw;
-  height: calc(100vh - 80px);
+.Create-Post--Container {
+  width: 90%;
   margin: auto;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .Create--Title {
+    font-size: 52px;
+  }
+
+  .Form-Input--Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 15px 0px;
+
+    >h3 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    >input {
+      width: 650px;
+      height: 40px;
+      border: 1px solid grey;
+      text-align: left;
+      font-size: 20px;
+      padding: 0 10px;
+    }
+
+    .Input--Body {
+      height: 300px;
+      width: 650px;
+      resize: none;
+      font-size: 20px;
+      font-weight: 300;
+      padding: 10px;
+    }
+  }
+
+  .Post--Form {
+    display: flex;
+    flex-direction: column;
+
+    .Form--Submit {
+      border: none;
+      padding: 5px 10px;
+      width: 200px;
+      height: 40px;
+      font-size: 18px;
+      background-color: $primary-bg;
+      color: white;
+    }
+  }
 }
+

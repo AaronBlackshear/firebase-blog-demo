@@ -4,14 +4,17 @@ import "./components/Scss/Styles.css";
 import routes from "./routes";
 
 import Header from "./components/Header/Header";
+import MyProvider from "./MyProvider";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        {routes}
-      </div>
+      <MyProvider>
+        <div className="App">
+          <Header />
+          {routes}
+        </div>
+      </MyProvider>
     );
   }
 }

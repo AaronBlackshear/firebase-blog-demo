@@ -1,32 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-import { auth, googleAuthProvider } from "../../firebase";
+import { Link } from "react-router-dom";
+import MyContext from "../../MyContext";
 
 export default function Header() {
-  const handleUserAuth = () => {
-    if (auth.currentUser) {
-      auth.signOut();
-    } else {
-      var provider = googleAuthProvider
-      auth
-        .signInWithPopup(provider)
-        .then(result => {
-          let user = result.user;
-          console.log(user);
-        })
-        .catch(err => console.log(err));
-    }
-  };
-
   return (
     <div className="Header--Container">
-      <h1 className="Header--Title">MySuperAwesomeBlog</h1>
-      <ul className="Header--UL">
-        <li className="Header--LI">Messages</li>
-        <li className="Header--LI" onClick={handleUserAuth}>
-          Log In
-        </li>
-      </ul>
+      <MyContext.Consumer>
+        {context => (
+          <Fragment>
+            <h1 className="Header--Title">
+              <Link to="/">MySuperAwesomeBlog</Link>
+            </h1>
+            <ul className="Header--UL">
+              <Link to="/messages" className="Header--LI">Messages</Link>
+              <Link to="/my-posts" className="Header--LI">My Posts</Link>
+              <Link to="/create-post" className="Header--LI">Create Post</Link>
+              <Link to="/" className="Header--LI" onClick={context.handleUserAuth}>
+                {!context.state.currentUser.uid ? "Sign In" : "Sign Out"}
+              </Link>
+            </ul>
+          </Fragment>
+        )}
+      </MyContext.Consumer>
     </div>
   );
 }
