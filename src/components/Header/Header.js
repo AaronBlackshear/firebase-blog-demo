@@ -13,12 +13,18 @@ export default function Header() {
               <Link to="/">MySuperAwesomeBlog</Link>
             </h1>
             <ul className="Header--UL">
-              <Link to="/messages" className="Header--LI">Messages</Link>
-              <Link to="/my-posts" className="Header--LI">My Posts</Link>
-              <Link to="/create-post" className="Header--LI">Create Post</Link>
-              <Link to="/" className="Header--LI" onClick={context.handleUserAuth}>
-                {!context.state.currentUser.uid ? "Sign In" : "Sign Out"}
+              <Link to="/messages" className="Header--LI">
+                Messages
               </Link>
+              <Link to="/my-posts" className="Header--LI">
+                My Posts
+              </Link>
+              <Link to="/create-post" className="Header--LI">
+                Create Post
+              </Link>
+              <li className="Header--LI" onClick={context.handleUserAuth}>
+                {!context.state.currentUser.uid ? "Sign In" : "Sign Out"}
+              </li>
             </ul>
           </Fragment>
         )}

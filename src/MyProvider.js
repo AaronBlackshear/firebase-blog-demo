@@ -18,18 +18,20 @@ class MyProvider extends React.Component {
         .then(result => {
           this.setState({ currentUser: result.user });
         })
+        .then(res => (window.location = "/"))
         .catch(err => console.log(err));
     }
   };
 
   handleUserPost = (title, body, uid) => {
-    database.ref("posts").push({
-      title,
-      body,
-      author: uid
-    }).then(res => window.location = "/")
-
-
+    database
+      .ref("posts")
+      .push({
+        title,
+        body,
+        author: uid
+      })
+      .then(res => (window.location = "/"));
   };
 
   render() {

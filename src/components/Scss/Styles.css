@@ -33,7 +33,7 @@ textarea {
   justify-content: space-between;
   align-items: center;
   padding: 0 80px; }
-  .Header--Container a {
+  .Header--Container a, .Header--Container li {
     text-decoration: none;
     color: black;
     color: white; }
