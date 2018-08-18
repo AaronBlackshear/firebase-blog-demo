@@ -2,6 +2,7 @@ import React from "react";
 
 import { auth, googleAuthProvider, database } from "./firebase";
 import MyContext from "./MyContext";
+import { Redirect } from "react-router-dom";
 
 class MyProvider extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class MyProvider extends React.Component {
         .then(result => {
           this.setState({ currentUser: result.user });
         })
-        .then(res => (window.location = "/"))
+        .then(() => <Redirect to={{pathName: "/"}} />)
         .catch(err => console.log(err));
     }
   };
@@ -31,7 +32,8 @@ class MyProvider extends React.Component {
         body,
         author: uid
       })
-      .then(res => (window.location = "/"));
+      .then(() => <Redirect push to="/" />)
+      .catch(err => console.log(err));
   };
 
   render() {

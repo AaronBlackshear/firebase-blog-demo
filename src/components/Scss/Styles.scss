@@ -28,6 +28,7 @@ textarea {
   width: 80vw;
   margin: auto;
   min-height: calc(100vh - 80px);
+  padding: 15px;
 }
 
 // Header
@@ -41,7 +42,8 @@ textarea {
   align-items: center;
   padding: 0 80px;
 
-  a, li {
+  a,
+  li {
     text-decoration: none;
     color: black;
     color: white;
@@ -82,12 +84,12 @@ textarea {
     align-items: flex-start;
     margin: 15px 0px;
 
-    >h3 {
+    > h3 {
       font-size: 26px;
       margin-bottom: 6px;
     }
 
-    >input {
+    > input {
       width: 650px;
       height: 40px;
       border: 1px solid grey;
@@ -122,3 +124,42 @@ textarea {
   }
 }
 
+// Post
+
+.Post--Container {
+  width: 70%;
+  margin: 20px auto;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  position: relative;
+
+  .Post--Title {
+    font-size: 28px;
+    margin: 15px;
+    text-align: left;
+  }
+
+  .Post--Body {
+    margin: 15px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .Post-Alter--Container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    .Post--Alter {
+      margin: 0 10px;
+      color: rgba(150, 150, 150, 0.521);
+      transition: .1s linear;
+      font-size: 18px;
+
+      &:hover {
+        color: grey;
+      }
+    }
+  }
+}

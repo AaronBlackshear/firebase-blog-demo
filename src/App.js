@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./components/Scss/Styles.css";
-import routes from "./routes";
+import Routes from "./routes";
 
 import Header from "./components/Header/Header";
 import MyProvider from "./MyProvider";
@@ -12,7 +12,7 @@ class App extends Component {
       <MyProvider>
         <div className="App">
           <Header />
-          {routes}
+          <Routes />
         </div>
       </MyProvider>
     );

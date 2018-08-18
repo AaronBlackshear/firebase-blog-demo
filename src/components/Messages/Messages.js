@@ -1,11 +1,11 @@
 import React from "react";
 
-import Post from "./Post";
-
-export default function Home() {
+function Messages() {
   return (
     <div className="Content--Container">
-      <Post />
+        MESSAGES
     </div>
-  );
+  )
 }
+
+export default Messages;
