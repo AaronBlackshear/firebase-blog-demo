@@ -43,7 +43,7 @@ class CreatePost extends Component {
                     context.handleUserPost(
                       title,
                       body,
-                      context.state.currentUser.uid
+                      localStorage.getItem("currentUser")
                     )
                   }
                 >

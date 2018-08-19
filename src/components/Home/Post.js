@@ -33,7 +33,7 @@ class Post extends Component {
           return (
             <section key={ind} className="Post--Container">
               <div className="Post-Alter--Container">
-                <i className="fas fa-pencil-alt Post--Alter" />
+                <i className="fas fa-pencil-alt Post--Alter" onClick={() => this.deletePost()} />
                 <i className="fas fa-times-circle Post--Alter" />
               </div>
               <h1 className="Post--Title">{cur.title}</h1>

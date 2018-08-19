@@ -23,7 +23,7 @@ export default function Header() {
                 Create Post
               </Link>
               <li className="Header--LI" onClick={context.handleUserAuth}>
-                {!context.state.currentUser.uid ? "Sign In" : "Sign Out"}
+                {!localStorage.getItem("currentUser") ? "Sign In" : "Sign Out"}
               </li>
             </ul>
           </Fragment>
