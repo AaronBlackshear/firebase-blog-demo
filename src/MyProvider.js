@@ -13,7 +13,6 @@ class MyProvider extends React.Component {
   }
 
   handleUserAuth = () => {
-    console.log(localStorage.getItem("currentUser"));
     if (localStorage.getItem("currentUser")) {
       auth
         .signOut()
@@ -31,22 +30,26 @@ class MyProvider extends React.Component {
     }
   };
 
-  handleUserPost = (title, body, uid) => {
+  handleUserPost = (title, body, user) => {
     database
       .ref("posts")
       .push({
         title,
         body,
-        author: uid,
-        postID: null
+        author: JSON.parse(user),
+        timestamp: Date.now(),
+        date: new Date().toLocaleDateString()
       })
       .then(() => (window.location.pathname = "/"))
       .catch(err => console.log(err));
   };
 
-  deletePost = (postID) => {
-    database.ref("posts").child(postID).remove();
-  }
+  deletePost = postID => {
+    database
+      .ref("posts")
+      .child(postID)
+      .remove();
+  };
 
   handleShowLogin = () => {
     if (localStorage.getItem("currentUser")) {
